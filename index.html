@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Financial UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="top-section">
+    <div class="top-text-wrapper">
+      <h1>Hello, Ji-eun</h1>
+      <div class="amount">₱ 200.00</div>
+      <div class="label">Remaining Amount</div>
+    </div>
+  </div>
+
+  <div class="top-nav">
+      <div class="nav-link active">Home</div>
+      <a href="Categories.html" class="nav-link">Categories</a>
+      <a href="Graph.html" class="nav-link">Chart</a>
+      <div class="nav-link">Calendar</div>
+      <div class="nav-avatar">
+         <img src="./img/Avatar.png" alt="Profile" onclick="toggleProfile()" />
+     </div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="box">
+      <div class="title">Weekly Allowance</div>
+      <div class="value">₱ 1000.00</div>
+    </div>
+    <div class="divider"></div>
+    <div class="box">
+      <div class="title">Weekly Savings</div>
+      <div class="value">₱ 100.00</div>
+    </div>
+  </div>
+
+
+  
+  <div class="bottom-section">
+        <h2 class="section-title">Spending Goals</h2>
+      <div class="goals">
+        <div class="goal-wrapper">
+        <div class="goal">
+         <img src="./img/Grad.jpg" alt="Goal 1">
+        </div>
+         <p class="goal-caption">This week's goal</p>
+        </div>
+       <div class="goal">
+         <img src="./img/iphone.PNG" alt="Goal 2">
+       </div>
+       <div class="goal">
+         <img src="./img/Books.jpg" alt="Goal 3">
+       </div>
+       <div class="goal">
+        <img src="./img/Wrangler.jpg" alt="Goal 4">
+       </div>
+       <div class="goal">
+        <img src="./img/Dress.jpg" alt="Goal 5">
+       </div>
+</div>
+
+
+       <h2 class="section-title">Recent Spendings</h2>
+       <div class="recent-spendings">
+  <div class="spending-item">
+    <div class="icon-circle">
+      <img src="./img/Food.png" alt="Food Icon" />
+    </div>
+    <span class="spending-name">Food</span>
+    <span class="spending-price">₱ 75.00</span>
+  </div>
+
+  <div class="spending-item">
+    <div class="icon-circle">
+      <img src="./img/Transportation.png" alt="Transport Icon" />
+    </div>
+    <span class="spending-name">Transportation</span>
+    <span class="spending-price">₱ 60.00</span>
+  </div>
+
+  <div class="spending-item">
+    <div class="icon-circle">
+      <img src="./img/Gifts.png" alt="" />
+    </div>
+    <span class="spending-name">Gifts</span>
+    <span class="spending-price">₱ 150.00</span>
+  </div>
+
+  <div class="spending-item">
+    <div class="icon-circle">
+      <img src="./img/clothing.png" alt="" />
+    </div>
+    <span class="spending-name">Clothing</span>
+    <span class="spending-price">₱ 40.00</span>
+  </div>
+</div>
+
+<!-- Profile Overlay -->
+  <div class="profile-overlay" id="profileOverlay">
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="back-button" onclick="toggleProfile()">←</div>
+        <div class="profile-title">Profile</div>
+      </div>
+      
+      <div class="profile-info">
+        <img src="./img/IU.jpg" alt="Profile Picture" class="profile-pic" />
+        <div class="profile-name">Lee Ji-eun</div>
+      </div>
+      
+      <ul class="profile-menu">
+        <li><span class="icon"><img src="./img/Icon Profile.png" alt=""></span><span class="menu-label">Edit Profile</span><span class="chevron">›</span></li>
+        <li><span class="icon"><img src="./img/Icon Security.png" alt=""></span><span class="menu-label">Security</span><span class="chevron">›</span></li>
+        <li><span class="icon"><img src="./img/Icon Setting.png" alt=""></span><span class="menu-label">Settings</span><span class="chevron">›</span></li>
+        <li><span class="icon"><img src="./img/Icon help.png" alt=""></span><span class="menu-label">Help</span><span class="chevron"></span></li>
+        <li onclick="showLogoutConfirmation()"><span class="icon"><img src="./img/Icon Logout.png" alt=""></span><span class="menu-label">Logout</span><span class="chevron"></span></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Logout Confirmation Dialog -->
+  <div class="logout-dialog" id="logoutDialog">
+    <div class="logout-dialog-content">
+      <div class="logout-message">Are you sure you want to log out?</div>
+      <div class="logout-buttons">
+        <button class="logout-btn-yes" onclick="confirmLogout()">Yes</button>
+        <button class="logout-btn-no" onclick="hideLogoutConfirmation()">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleProfile() {
+      const overlay = document.getElementById('profileOverlay');
+      overlay.classList.toggle('active');
+    }
+
+    function showLogoutConfirmation() {
+      const dialog = document.getElementById('logoutDialog');
+      dialog.classList.add('active');
+    }
+
+    function hideLogoutConfirmation() {
+      const dialog = document.getElementById('logoutDialog');
+      dialog.classList.remove('active');
+    }
+
+    function confirmLogout() {
+      // Redirect to splash screen
+      window.location.href = 'splash.html';
+    }
+  </script>
+</body>
+</html>
